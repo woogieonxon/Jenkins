@@ -12,14 +12,14 @@ pipeline {
             steps {
                 sh  """
                     echo ${WORKSPACE}
-                    git clone https://github.com/kimdragon50/facam-frontend.git
+                    git clone https://github.com/woogieonxon/Frontend.git
                     """
             }
         }
         stage ('npm build') {
             steps {
                 sh  """
-                    cd facam-frontend
+                    cd Frontend
                     npm install
                     npm run build
                     """
@@ -33,8 +33,8 @@ pipeline {
                     MY_APP_PRIVATE_IP = "" 
 
                     sh  """
-                        git clone https://github.com/kimdragon50/facam-ansible.git 
-                        cd  facam-ansible 
+                        git clone https://github.com/woogieonxon/Ansible.git 
+                        cd  Ansible 
 
                         sed -i 's/MY_KEYPAIR_NAME/${MY_KEYPAIR_NAME}/g' hosts/hosts
                         sed -i 's/MY_APP_PRIVATE_IP/${MY_APP_PRIVATE_IP}/g' hosts/hosts
